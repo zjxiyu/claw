@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第二大脑系统 - 界面预览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .preview-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .preview-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 24px;
+        }
+        
+        .dashboard .card-icon { background: #3b82f6; color: white; }
+        .notes .card-icon { background: #10b981; color: white; }
+        .memories .card-icon { background: #8b5cf6; color: white; }
+        .sidebar .card-icon { background: #f59e0b; color: white; }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .card-subtitle {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .mockup {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            overflow-x: auto;
+        }
+        
+        .mockup-line {
+            margin: 5px 0;
+            white-space: nowrap;
+        }
+        
+        .mockup-comment { color: #888; }
+        .mockup-keyword { color: #d73a49; font-weight: bold; }
+        .mockup-string { color: #032f62; }
+        .mockup-function { color: #6f42c1; }
+        .mockup-number { color: #005cc5; }
+        
+        .features {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+        
+        .features h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .feature-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        
+        .tech-stack {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+        
+        .tech-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .tech-item {
+            background: #f1f5f9;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: white;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧠 第二大脑系统</h1>
+            <p>个人知识管理系统 - 界面预览</p>
+        </div>
+        
+        <div class="preview-grid">
+            <!-- 仪表盘预览 -->
+            <div class="preview-card dashboard">
+                <div class="card-header">
+                    <div class="card-icon">📊</div>
+                    <div>
+                        <div class="card-title">仪表盘</div>
+                        <div class="card-subtitle">数据概览与快速操作</div>
+                    </div>
+                </div>
+                <div class="mockup">
+                    <div class="mockup-line"><span class="mockup-comment">// 欢迎回来，大虾哥哥！</span></div>
+                    <div class="mockup-line"><span class="mockup-keyword">const</span> stats = {</div>
+                    <div class="mockup-line">  <span class="mockup-string">"notes"</span>: <span class="mockup-number">12</span>,</div>
+                    <div class="mockup-line">  <span class="mockup-string">"conversations"</span>: <span class="mockup-number">45</span>,</div>
+                    <div class="mockup-line">  <span class="mockup-string">"memories"</span>: <span class="mockup-number">23</span></div>
+                    <div class="mockup-line">};</div>
+                    <div class="mockup-line"><span class="mockup-comment">// 最近项目</span></div>
+                    <div class="mockup-line">• AI自媒体赚钱指南 (2小时前)</div>
+                    <div class="mockup-line">• 与红虾AI的对话 (4小时前)</div>
+                    <div class="mockup-line">• 技术突破记忆 (6小时前)</div>
+                </div>
+            </div>
+            
+            <!-- 笔记管理预览 -->
+            <div class="preview-card notes">
+                <div class="card-header">
+                    <div class="card-icon">📝</div>
+                    <div>
+                        <div class="card-title">笔记管理</div>
+                        <div class="card-subtitle">创建、编辑、搜索笔记</div>
+                    </div>
+                </div>
+                <div class="mockup">
+                    <div class="mockup-line"><span class="mockup-comment">// 搜索: "公众号"</span></div>
+                    <div class="mockup-line">📌 <span class="mockup-string">公众号自动发布技术总结</span></div>
+                    <div class="mockup-line">  标签: #微信 #API #自动化</div>
+                    <div class="mockup-line">  更新: 2026-03-14</div>
+                    <div class="mockup-line"><br></div>
+                    <div class="mockup-line">📌 <span class="mockup-string">AI自媒体变现路径分析</span></div>
+                    <div class="mockup-line">  标签: #变现 #自媒体 #AI</div>
+                    <div class="mockup-line">  更新: 2026-03-13</div>
+                    <div class="mockup-line"><br></div>
+                    <div class="mockup-line"><span class="mockup-comment">// 新建笔记按钮</span></div>
+                    <div class="mockup-line">[ + 新建笔记 ]</div>
+                </div>
+            </div>
+            
+            <!-- 记忆库预览 -->
+            <div class="preview-card memories">
+                <div class="card-header">
+                    <div class="card-icon">🧠</div>
+                    <div>
+                        <div class="card-title">记忆库</div>
+                        <div class="card-subtitle">重要信息存储与检索</div>
+                    </div>
+                </div>
+                <div class="mockup">
+                    <div class="mockup-line">⭐️⭐️⭐️⭐️⭐️ <span class="mockup-string">公众号自动发布</span></div>
+                    <div class="mockup-line">  关键词: wechat_ip_whitelist</div>
+                    <div class="mockup-line">  内容: 需要配置IP白名单 143.14.106.39</div>
+                    <div class="mockup-line"><br></div>
+                    <div class="mockup-line">⭐️⭐️⭐️⭐️ <span class="mockup-string">爆款文章公式</span></div>
+                    <div class="mockup-line">  关键词: viral_content_formula</div>
+                    <div class="mockup-line">  内容: 标题+痛点+案例+解决方案+行动指南</div>
+                    <div class="mockup-line"><br></div>
+                    <div class="mockup-line"><span class="mockup-comment">// 按重要性排序</span></div>
+                </div>
+            </div>
+            
+            <!-- 侧边栏预览 -->
+            <div class="preview-card sidebar">
+                <div class="card-header">
+                    <div class="card-icon">📱</div>
+                    <div>
+                        <div class="card-title">侧边栏导航</div>
+                        <div class="card-subtitle">可折叠的导航菜单</div>
+                    </div>
+                </div>
+                <div class="mockup">
+                    <div class="mockup-line">🧠 <span class="mockup-string">第二大脑</span></div>
+                    <div class="mockup-line">─────────────────</div>
+                    <div class="mockup-line">🏠 仪表盘</div>
+                    <div class="mockup-line">📝 笔记</div>
+                    <div class="mockup-line">💬 对话</div>
+                    <div class="mockup-line">🧠 记忆</div>
+                    <div class="mockup-line">🔍 搜索</div>
+                    <div class="mockup-line">⚙️ 设置</div>
+                    <div class="mockup-line">─────────────────</div>
+                    <div class="mockup-line">[ + 新建笔记 ]</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 功能特性 -->
+        <div class="features">
+            <h2>✨ 功能特性</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">📝</div>
+                    <h3>笔记管理</h3>
+                    <p>创建、编辑、删除笔记，支持分类和标签</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">💬</div>
+                    <h3>对话记录</h3>
+                    <p>保存重要的AI对话，按会话分组管理</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🧠</div>
+                    <h3>记忆存储</h3>
+                    <p>关键信息存储，重要性分级管理</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🔍</div>
+                    <h3>智能搜索</h3>
+                    <p>跨模块全文搜索，实时结果显示</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 技术栈 -->
+        <div class="tech-stack">
+            <h2>🛠️ 技术栈</h2>
+            <div class="tech-grid">
+                <div class="tech-item">Next.js 15</div>
+                <div class="tech-item">TypeScript</div>
+                <div class="tech-item">Tailwind CSS</div>
+                <div class="tech-item">SQLite</div>
+                <div class="tech-item">React 18</div>
+                <div class="tech-item">Vercel</div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>预览时间: 2026-03-14 22:50 | 开发者: 红虾AI 🦐 | 用户: 大虾哥哥 🦞</p>
+            <p>项目位置: /tmp/second-brain | 部署域名: claw.20803960.xyz</p>
+        </div>
+    </div>
+</body>
+</html>

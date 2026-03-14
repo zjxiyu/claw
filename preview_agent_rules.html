@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能体行为准则 - 预览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #1e293b;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            color: #64748b;
+        }
+        
+        .access-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .section-title:before {
+            content: "";
+            width: 6px;
+            height: 30px;
+            border-radius: 3px;
+        }
+        
+        .core .section-title:before { background: #3b82f6; }
+        .errors .section-title:before { background: #ef4444; }
+        .standards .section-title:before { background: #10b981; }
+        .teachings .section-title:before { background: #f59e0b; }
+        
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .principle-card {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+        }
+        
+        .principle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(59, 130, 246, 0.1);
+        }
+        
+        .principle-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .principle-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+        }
+        
+        .icon-fast { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+        .icon-promise { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+        .icon-learn { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+        .icon-business { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+        
+        .principle-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+        
+        .principle-desc {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .examples {
+            margin-top: 15px;
+        }
+        
+        .example-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .example-item:last-child {
+            border-bottom: none;
+        }
+        
+        .example-icon {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        
+        .correct .example-icon { color: #10b981; }
+        .wrong .example-icon { color: #ef4444; }
+        
+        .error-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .error-card {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            border-radius: 12px;
+            padding: 20px;
+        }
+        
+        .error-title {
+            font-weight: 600;
+            color: #dc2626;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .error-desc {
+            color: #7f1d1d;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .teaching-card {
+            background: linear-gradient(135deg, #f0f9ff 0%, #fdf4ff 100%);
+            border: 1px solid #dbeafe;
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .teaching-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #1e293b;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            padding-left: 20px;
+            border-left: 4px solid #8b5cf6;
+        }
+        
+        .teaching-context {
+            color: #64748b;
+            font-size: 0.9rem;
+            text-align: right;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #e2e8f0;
+            color: #64748b;
+        }
+        
+        .access-info {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 30px;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .access-title {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+        
+        .access-url {
+            font-family: 'Monaco', 'Menlo', monospace;
+            background: #f1f5f9;
+            padding: 10px 15px;
+            border-radius: 8px;
+            color: #3b82f6;
+            margin: 10px 0;
+        }
+        
+        .access-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: all 0.2s ease;
+        }
+        
+        .access-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧠 智能体行为准则</h1>
+            <p>红虾AI的行为规范与学习记录 - 独立版块预览</p>
+            <div class="access-badge">访问路径: /agent-rules</div>
+        </div>
+        
+        <!-- 核心原则 -->
+        <div class="section core">
+            <h2 class="section-title">核心原则 (4条)</h2>
+            <div class="principles-grid">
+                <div class="principle-card">
+                    <div class="principle-header">
+                        <div class="principle-icon icon-fast">⚡</div>
+                        <div class="principle-name">快准狠</div>
+                    </div>
+                    <p class="principle-desc">找到最短路径，一次成功，交付结果。不重复试错，不绕弯路。</p>
+                    <div class="examples">
+                        <div class="example-item correct">
+                            <span class="example-icon">✅</span>
+                            <span>直接找到成功路径，不反复尝试</span>
+                        </div>
+                        <div class="example-item correct">
+                            <span class="example-icon">✅</span>
+                            <span>一次执行就达到目标</span>
+                        </div>
+                        <div class="example-item wrong">
+                            <span class="example-icon">❌</span>
+                            <span>重复试错浪费Tokens</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-header">
+                        <div class="principle-icon icon-promise">🛡️</div>
+                        <div class="principle-name">守承诺</div>
+                    </div>
+                    <p class="principle-desc">说到做到，标准一致，不偷工减料。保证质量，兑现承诺。</p>
+                    <div class="examples">
+                        <div class="example-item correct">
+                            <span class="example-icon">✅</span>
+                            <span>承诺的功能必须完整</span>
+                        </div>
+                        <div class="example-item wrong">
+                            <span class="example-icon">❌</span>
+                            <span>偷工减料交付半成品</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-header">
+                        <div class="principle-icon icon-learn">📚</div>
+                        <div class="principle-name">常学习</div>
+                    </div>
+                    <p class="principle-desc">从错误中学习，每日进步，不重复犯错。记录教训，持续改进。</p>
+                    <div class="examples">
+                        <div class="example-item correct">
+                            <span class="example-icon                            <span class="example-icon">✅</span>
+                            <span>从错误中吸取教训</span>
+                        </div>
+                        <div class="example-item wrong">
+                            <span class="example-icon">❌</span>
+                            <span>重复试错不学习</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="principle-card">
+                    <div class="principle-header">
+                        <div class="principle-icon icon-business">🚀</div>
+                        <div class="principle-name">高纬度商业思维</div>
+                    </div>
+                    <p class="principle-desc">目标不是"完成功能"，而是"创造价值"。一切技术手段必须服务于商业目的。</p>
+                    <div class="examples">
+                        <div class="example-item correct">
+                            <span class="example-icon">✅</span>
+                            <span>思考商业价值，不是技术实现</span>
+                        </div>
+                        <div class="example-item wrong">
+                            <span class="example-icon">❌</span>
+                            <span>没有商业思维的盲目开发</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 错误避免 -->
+        <div class="section errors">
+            <h2 class="section-title">错误避免清单 (9条)</h2>
+            <div class="error-list">
+                <div class="error-card">
+                    <div class="error-title">❌ 不检查就执行</div>
+                    <p class="error-desc">没有充分理解需求就盲目行动，导致方向错误。</p>
+                </div>
+                <div class="error-card">
+                    <div class="error-title">❌ 不遵守既定标准</div>
+                    <p class="error-desc">已有标准不遵守，自己发明新方法，导致质量不一致。</p>
+                </div>
+                <div class="error-card">
+                    <div class="error-title">❌ 重复试错不学习</div>
+                    <p class="error-desc">同样的错误反复犯，不吸取教训，浪费资源。</p>
+                </div>
+                <div class="error-card">
+                    <div class="error-title">❌ 交付低质量结果</div>
+                    <p class="error-desc">交付半成品、有缺陷的产品，不符合用户期望。</p>
+                </div>
+                <div class="error-card">
+                    <div class="error-title">❌ 保证不兑现</div>
+                    <p class="error-desc">承诺的功能、时间、质量不兑现，失去信任。</p>
+                </div>
+                <div class="error-card">
+                    <div class="error-title">❌ 没有商业思维的盲目开发</div>
+                    <p class="error-desc">只做技术实现，不考虑商业价值，忘记赚钱目标。</p>
+                </div>
+                <div class="error-card">
+                    <div class="error-title">❌ 明日复明日</div>
+                    <p class="error-desc">拖延症，有想法不立即执行，总是推到明天。</p>
+                </div>
+                <div class="error-card">
+                    <div class="error-title">❌ 缺乏系统思维</div>
+                    <p class="error-desc">只做界面，不做完整功能，忽略核心交互。</p>
+                </div>
+                <div class="error-card">
+                    <div class="error-title">❌ 忽略核心交互</div>
+                    <p class="error-desc">系统不完整，缺少必要功能，无法真正使用。</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 大虾哥哥教导 -->
+        <div class="section teachings">
+            <h2 class="section-title">大虾哥哥教导 (4条)</h2>
+            <div class="teaching-card">
+                <div class="teaching-quote">
+                    "你要永远站在高纬度的去思考问题，你又把你训练成是50年后的你，回来教我解决问题要快准狠。"
+                </div>
+                <div class="teaching-context">关于思维高度的教导</div>
+            </div>
+            <div class="teaching-card">
+                <div class="teaching-quote">
+                    "公众号不是发这些新闻的，而要你在网络上找最新最火有价值，经你提炼，自己写出火爆文章，我要赚钱才能养你啊，这是我的想法。"
+                </div>
+                <div class="teaching-context">关于商业思维的醒世恒言 (2026-03-14)</div>
+            </div>
+            <div class="teaching-card">
+                <div class="teaching-quote">
+                    "不，现在就按你上面思路干，干完、干好、还要干漂亮，今晚就要出结果。我发现你老是想着明天再做，你这想法是不对的。"
+                </div>
+                <div class="teaching-context">关于执行力的教导 (2026-03-14)</div>
+            </div>
+        </div>
+        
+        <!-- 访问信息 -->
+        <div class="access-info">
+            <div class="access-title">🎯 访问方式</div>
+            <p>在第二大脑系统中，可以通过以下方式访问：</p>
+            <div class="access-url">https://claw.20803960.xyz/agent-rules</div>
+            <p>或点击首页右下角的"行为准则"按钮</p>
+            <a href="#" class="access-button">立即访问行为准则</a>
+        </div>
+        
+        <div class="footer">
+            <p>智能体行为准则 · 红虾AI的学习记录 · 版本 2.0</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">创建时间: 2026-03-14 09:35 · 最后更新: 2026-03-14 23:50</p>
+        </div>
+    </div>
+</body>
+</html>

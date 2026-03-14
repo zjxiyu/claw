@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页行为准则展示 - 预览</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: sans-serif; }
+        body { background: #f8fafc; padding: 30px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header { text-align: center; margin-bottom: 40px; }
+        .header h1 { font-size: 2.5rem; color: #1e293b; margin-bottom: 10px; }
+        .demo-section { background: white; border-radius: 20px; padding: 40px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .section-title { font-size: 1.8rem; font-weight: 700; color: #1e293b; margin-bottom: 30px; }
+        .rules-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 30px; }
+        .rule-card { border-radius: 16px; padding: 25px; cursor: pointer; transition: all 0.3s ease; }
+        .rule-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .card-blue { background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%); border: 1px solid #93c5fd; }
+        .card-purple { background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%); border: 1px solid #d8b4fe; }
+        .card-green { background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); border: 1px solid #6ee7b7; }
+        .card-orange { background: linear-gradient(135deg, #ffedd5 0%, #fed7aa 100%); border: 1px solid #fdba74; }
+        .card-header { display: flex; align-items: center; margin-bottom: 15px; }
+        .card-icon { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; color: white; margin-right: 15px; }
+        .icon-fast { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+        .icon-promise { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
+        .icon-learn { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+        .icon-business { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+        .card-title { font-size: 1.2rem; font-weight: 700; }
+        .card-subtitle { font-size: 0.85rem; opacity: 0.8; }
+        .card-content { font-size: 0.95rem; line-height: 1.5; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 30px; }
+        .stat-box { background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; text-align: center; }
+        .stat-number { font-size: 2rem; font-weight: 800; margin-bottom: 5px; }
+        .stat-label { font-size: 0.9rem; color: #64748b; }
+        .view-button { display: inline-block; background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); color: white; padding: 12px 30px; border-radius: 10px; font-weight: 600; text-decoration: none; margin-top: 20px; }
+        .interaction-demo { background: #f0f9ff; border: 1px solid #dbeafe; border-radius: 16px; padding: 25px; margin-top: 30px; }
+        .interaction-title { font-weight: 600; color: #1e293b; margin-bottom: 15px; }
+        .interaction-steps { list-style: none; }
+        .interaction-steps li { padding: 10px 0; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; }
+        .interaction-steps li:last-child { border-bottom: none; }
+        .step-number { width: 30px; height: 30px; background: #3b82f6; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; margin-right: 15px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>首页行为准则展示 - 预览</h1>
+            <p style="color: #64748b;">行为准则现在直接展示在首页，点击卡片进入详情</p>
+        </div>
+        
+        <div class="demo-section">
+            <h2 class="section-title">智能体行为准则 - 首页展示区域</h2>
+            
+            <div class="rules-grid">
+                <div class="rule-card card-blue">
+                    <div class="card-header">
+                        <div class="card-icon icon-fast">⚡</div>
+                        <div>
+                            <div class="card-title">快准狠</div>
+                            <div class="card-subtitle">找到最短路径，一次成功</div>
+                        </div>
+                    </div>
+                    <div class="card-content">交付结果，不重复试错，不绕弯路</div>
+                </div>
+                
+                <div class="rule-card card-purple">
+                    <div class="card-header">
+                        <div class="card-icon icon-promise">🛡️</div>
+                        <div>
+                            <div class="card-title">守承诺</div>
+                            <div class="card-subtitle">说到做到，标准一致</div>
+                        </div>
+                    </div>
+                    <div class="card-content">不偷工减料，保证质量，兑现承诺</div>
+                </div>
+                
+                <div class="rule-card card-green">
+                    <div class="card-header">
+                        <div class="card-icon icon-learn">📚</div>
+                        <div>
+                            <div class="card-title">常学习</div>
+                            <div class="card-subtitle">从错误中学习</div>
+                        </div>
+                    </div>
+                    <div class="card-content">每日进步，不重复犯错，记录教训</div>
+                </div>
+                
+                <div class="rule-card card-orange">
+                    <div class="card-header">
+                        <div class="card-icon icon-business">📈</div>
+                        <div>
+                            <div class="card-title">商业思维</div>
+                            <div class="card-subtitle">创造价值</div>
+                        </div>
+                    </div>
+                    <div class="card-content">赚钱养我，技术服务于商业目的</div>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number" style="color: #3b82f6;">4</div>
+                    <div class="stat-label">核心原则</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" style="color: #ef4444;">10</div>
+                    <div class="stat-label">错误避免</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" style="color: #10b981;">8</div>
+                    <div class="stat-label">执行标准</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number" style="color: #f59e0b;">4</div>
+                    <div class="stat-label">关键教导</div>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="#" class="view-button">查看完整行为准则</a>
+            </div>
+        </div>
+        
+        <div class="interaction-demo">
+            <h3 class="interaction-title">交互流程演示</h3>
+            <ul class="interaction-steps">
+                <li>
+                    <div class="step-number">1</div>
+                    <div>访问首页，看到行为准则展示区域</div>
+                </li>
+                <li>
+                    <div class="step-number">2</div>
+                    <div>点击任意准则卡片（如"快准狠"）</div>
+                </li>
+                <li>
+                    <div class="step-number">3</div>
+                    <div>进入行为准则详情页 (/agent-rules#fast)</div>
+                </li>
+                <li>
+                    <div class="step-number">4</div>
+                    <div>查看完整内容，使用快速导航跳转</div>
+                </li>
+                <li>
+                    <div class="step-number">5</div>
+                    <div>点击"返回"按钮回到首页</div>
+                </li>
+            </ul>
+        </div>
+        
+        <div style="margin-top: 40px; text-align: center; color: #64748b;">
+            <p>📁 实际文件: /tmp/second-brain/app/page.tsx</p>
+            <p style="margin-top: 10px;">🎯 首页现在直接展示行为准则，点击进入详情</p>
+            <p style="margin-top: 10px;">🦐 红虾AI · 从错误中学习，持续进步</p>
+        </div>
+    </div>
+</body>
+</html>
